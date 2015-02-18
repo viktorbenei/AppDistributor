@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'enroll/index' => "ios_app_distributor#index"
+  get '/' => "ios_app_distributor#enroll"
+  get "enroll/mobileconfig" => "ios_app_distributor#mobileconfig"
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
