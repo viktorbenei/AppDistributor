@@ -14,10 +14,16 @@ class IosAppDistributorController < ApplicationController
     
     def extract_udid
       parser = IosAppDistributorHelper::Enroll::ResponseParser.new(request)
-      @udid = parser.get 'UDID'
-      @version = parser.get 'VERSION'
-      @product = parser.get 'PRODUCT'
+      udid = parser.get 'UDID'
+      version = parser.get 'VERSION'
+      product = parser.get 'PRODUCT'
       # TODO log this stuff
-      #redirect_to "#{request.url}/check_install?udid=#{udid}", status: 301
+      redirect_to "#{request.url}/device_info?udid=#{udid}&version=#{version}&product=#{product}", status: 301
+    end
+    
+    def device_info
+        @udid = params[:udid]
+        @version = prams[:version]
+        @product = prams[:product]
     end
 end
