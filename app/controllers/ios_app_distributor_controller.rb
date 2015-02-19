@@ -24,7 +24,7 @@ class IosAppDistributorController < ApplicationController
     
     def device_info
         @udid = params[:udid]
-        @version = prams[:version]
-        @product = prams[:product]
+        @version = params[:version]
+        @product = params[:product]
     end
 end
