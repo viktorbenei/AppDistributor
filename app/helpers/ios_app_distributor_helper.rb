@@ -28,23 +28,23 @@ module IosAppDistributorHelper
               Rails.root.join('public','template', 'Profile.mobileconfig').to_s
           end
         end
-    end
-    
-    class ResponseParser
-      attr_accessor :body
+        
+        class ResponseParser
+          attr_accessor :body
 
-      def initialize request
-        self.body = deobfuscate(request.body.read)
-      end
+          def initialize request
+            self.body = deobfuscate(request.body.read)
+          end
 
-      def get key
-        self.body.match(/<key>#{key}<key><string>([a-zA-Z0-9]+)<string>/)[1]
-      end
+          def get key
+            self.body.match(/<key>#{key}<key><string>([a-zA-Z0-9]+)<string>/)[1]
+          end
 
-      private
-      def deobfuscate(input)
-        regex = /[A-Za-z0-9]|\>|\<|\?|\!|\"/
-        input.chars.select{|i| i.match(regex) }.join
+          private
+          def deobfuscate(input)
+            regex = /[A-Za-z0-9]|\>|\<|\?|\!|\"/
+            input.chars.select{|i| i.match(regex) }.join
+          end
       end
     end
 end
