@@ -18,7 +18,7 @@ class IosAppDistributorController < ApplicationController
       version = parser.get 'VERSION'
       product = parser.get 'PRODUCT'
       # TODO log this stuff
-      redirect_to "#{request.url}/device_info?udid=#{udid}&version=#{version}&product=#{product}", status: 301
+      redirect_to "#{request.host}/enroll/device_info?udid=#{udid}&version=#{version}&product=#{product}", status: 301
     end
     
     def device_info

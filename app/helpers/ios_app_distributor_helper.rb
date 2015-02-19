@@ -4,7 +4,7 @@ module IosAppDistributorHelper
          attr_accessor :next_url
 
           def initialize request
-            self.next_url = "#{request.url}/extract_udid"
+            self.next_url = "#{request.host}/enroll/extract_udid"
           end
 
           def outfile_path
