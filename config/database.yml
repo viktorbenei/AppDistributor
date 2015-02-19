@@ -47,8 +47,16 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+#production:
+#  <<: *default
+#  database: AppDistributor_production
+#  username: AppDistributor
+#  password: <%= ENV['APPDISTRIBUTOR_DATABASE_PASSWORD'] %>
+
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
   database: AppDistributor_production
-  username: AppDistributor
-  password: <%= ENV['APPDISTRIBUTOR_DATABASE_PASSWORD'] %>
+  pool: 5
+  username: root
+  password:
