@@ -31,6 +31,10 @@ class IosAppDistributorController < ApplicationController
     def upload
         uploaded_io = params[:mobileapp]
         randomfilename = SecureRandom.urlsafe_base64
+        ipa_directory = Rails.root.join('public', 'ipa')
+        if !Dir.exist?(ipa_directory)
+            Dir.mkdir(ipa_directory)
+        end
         File.open(Rails.root.join('public', 'ipa', randomfilename+".ipa"), 'wb') do |file|
             file.write(uploaded_io.read)
         end
