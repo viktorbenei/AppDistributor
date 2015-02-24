@@ -1,0 +1,12 @@
+<div>
+    <h1><%=@app_name%></h1>
+    <h2>Application Info</h2>
+    <% @info_plist.each do |key, value|%>
+    <h3><%=key%>:</h3><i><%=value%></i><br>
+    <%end%>
+    <br><br><br>
+    <h2>Embedded Mobileprovision</h2>
+    <% @mobile_provision.each do |key, value|%>
+    <h3><%=key%>:</h3><i><%=value%></i><br>
+    <%end%>
+</div>

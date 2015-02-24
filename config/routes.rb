@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get "enroll/mobileconfig" => "ios_app_distributor#mobileconfig"
   post "enroll/extract_udid" => "ios_app_distributor#extract_udid"
   get "enroll/device_info" => "ios_app_distributor#device_info"
+  get "uploadapp"          => "ios_app_distributor#upload_application_form"
+  post "uploadapp/upload"  => "ios_app_distributor#upload"
+  get "appinfo"            => "ios_app_distributor#app_info"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
