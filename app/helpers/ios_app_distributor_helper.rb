@@ -93,7 +93,8 @@ module IosAppDistributorHelper
                         @mobile_provision_entry.extract(tempfile.path){ override = true }
                         #mobile_provision_data = Plist::parse_xml(`security cms -D -i #{tempfile.path}`)
                         #plist = CFPropertyList::List.new(:file => tempfile.path)
-                        plist = CFPropertyList::List.new(:data => `security cms -D -i #{tempfile.path}`)
+                        #plist = CFPropertyList::List.new(:data => `security cms -D -i #{tempfile.path}`)
+                        plist = CFPropertyList::List.new(:data => `openssl smime -inform der -verify -in #{tempfile.path}`)
                         mobile_provision_data = CFPropertyList.native_types(plist.value)
                         mobile_provision_data.each do |key, value|
                             mobile_provision_info[key] = case value
