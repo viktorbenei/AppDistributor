@@ -21,6 +21,6 @@ class DeviceProfilesController < ApplicationController
         mobile_device.save
         
       # TODO log this stuff
-      redirect_to "http://#{request.host}/mobileapplications?udid=#{udid}, status: 301
+      redirect_to "http://#{request.host}/mobileapplications?udid=#{udid}", status: 301
     end
 end
