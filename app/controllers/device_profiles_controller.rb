@@ -1,4 +1,5 @@
 class DeviceProfilesController < ApplicationController
+    skip_before_action :verify_authenticity_token
     
     def mobileconfig
       enroll = DeviceProfilesHelper::Enroll::MobileConfig.new(request)
