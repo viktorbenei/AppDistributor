@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  udid: MyString
+  version: MyString
+  product: MyString
+
+two:
+  udid: MyString
+  version: MyString
+  product: MyString

@@ -1,35 +1,6 @@
 
 module IosAppDistributorHelper
     module Enroll
-        class MobileConfig
-         attr_accessor :next_url
-
-          def initialize request
-            self.next_url = "http://#{request.host}/enroll/extract_udid"
-          end
-
-          def outfile_path
-            Rails.root.join('tmp', 'Profile.mobileconfig').to_s
-          end
-
-          def mime_type
-            "application/x-apple-aspen-config; charset=utf-8"
-          end
-
-          def write_mobileconfig
-            File.open(self.outfile_path, "w") do |out|
-              File.open(template_path, "r") do |tmpl|
-                out.write tmpl.read.gsub('[NextURL]', self.next_url)
-              end
-            end
-          end
-
-          private
-          def template_path
-              Rails.root.join('public','template', 'Profile.mobileconfig').to_s
-          end
-        end
-        
         class ResponseParser
           attr_accessor :body
 
@@ -62,13 +33,8 @@ module IosAppDistributorHelper
             attr_accessor :mobile_provision_entry, :info_plist_entry
             def initialize ipa_name  
                 ipa_file_path = Rails.root.join('public', 'ipa', ipa_name+'.ipa').to_s
-                zip_ipa_path = Rails.root.join('public', 'ipa', ipa_name+'.zip').to_s
-                zip_app_path = Rails.root.join('public', 'ipa', ipa_name+'app.zip').to_s
-                app_path = Rails.root.join('public', 'ipa', ipa_name+'app.app').to_s
-                payload_path = Rails.root.join('public', 'ipa').to_s
-                #File.rename(ipa_file_path, zip_ipa_path)
-                
                 Zip::File.open(ipa_file_path) do |ipa_file|
+                    puts "Open ipa: #{ipa_file_path}"
                     appDirecoty = ipa_file.glob('Payload/*.app').first
                     if appDirecoty
                         ipa_file.dir.entries("Payload").each do |dir_entry|

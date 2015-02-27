@@ -53,6 +53,12 @@ class IosAppDistributorController < ApplicationController
         ipa = IosAppDistributorHelper::IPA::ExtractIPA.new(file_name)
         @mobile_provision = ipa.mobile_provision
         @info_plist = ipa.info_plist
+        if !@info_plist 
+            @info_plist = Hash.new
+        end
+        if !@mobile_provision
+            @mobile_provision = Hash.new
+        end
     end
     
     def upload_application_form
