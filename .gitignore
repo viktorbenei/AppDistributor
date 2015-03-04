@@ -1,17 +1,6 @@
-log/development.log
-tmp/cache/assets/development/sprockets/13fe41fee1fe35b49d145bcc06610705
-tmp/cache/assets/development/sprockets/17b425710fb47b6441682a1426fb0ca8
-tmp/cache/assets/development/sprockets/201ec5639d015a83175cc7fe716ad89d
-tmp/cache/assets/development/sprockets/234645f2c00c1e988117878d89b99cdf
-tmp/cache/assets/development/sprockets/2f5173deea6c795b8fdde723bb4b63af
-tmp/cache/assets/development/sprockets/357970feca3ac29060c1e3861e2c0953
-tmp/cache/assets/development/sprockets/57af8ba68e994734c9dbc53e88403da1
-tmp/cache/assets/development/sprockets/81f39eb1c0085314585be1001be2d390
-tmp/cache/assets/development/sprockets/91b56166954a633e6f8576b93326d978
-tmp/cache/assets/development/sprockets/a3d92cbea39b6e22e028dc5f1823c93a
-tmp/cache/assets/development/sprockets/a70df84164697568bf3ed621af335831
-tmp/cache/assets/development/sprockets/cffd775d018f68ce5dba1ee0d951a994
-tmp/cache/assets/development/sprockets/d771ace226fc8215a3572e0aa35bb0d6
-tmp/cache/assets/development/sprockets/e188b0a70998bc1be29961572a104237
-tmp/cache/assets/development/sprockets/f7cbd26ba1d28d48de824f0e94586655
-tmp
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
