@@ -13,15 +13,20 @@ class DeviceProfilesController < ApplicationController
       version = parser.get 'VERSION'
       product = parser.get 'PRODUCT'
       mobile_device = MobileDevice.find_by udid:udid
-        if !mobile_device
-           mobile_device =  MobileDevice.new
-        end
-        mobile_device.udid = udid
-        mobile_device.version = version
-        mobile_device.product = product
-        mobile_device.save
+      if !mobile_device
+         mobile_device =  MobileDevice.new
+      end
+      mobile_device.udid = udid
+      mobile_device.version = version
+      mobile_device.product = product
+      mobile_device.save!
         
       # TODO log this stuff
-      redirect_to "http://#{request.host}/mobileapplications?udid=#{udid}", status: 301
+      request_full_host = "#{request.host}"
+      if request.port
+        request_full_host += ":#{request.port}"
+      end
+      puts " (debug) request_full_host: #{request_full_host}"
+      redirect_to "http://#{request_full_host}/mobileapplications?udid=#{udid}", status: 301
     end
 end

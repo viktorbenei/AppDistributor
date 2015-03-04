@@ -13,12 +13,15 @@
 
 ActiveRecord::Schema.define(version: 20150226134952) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "mobile_devices", force: :cascade do |t|
-    t.string   "udid",       limit: 255
-    t.string   "version",    limit: 255
-    t.string   "product",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "udid"
+    t.string   "version"
+    t.string   "product"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
