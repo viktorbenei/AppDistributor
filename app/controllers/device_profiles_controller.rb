@@ -9,9 +9,13 @@ class DeviceProfilesController < ApplicationController
     
     def register
       parser = DeviceProfilesHelper::Enroll::ResponseParser.new(request)
+      puts " (debug) parser.plist_content_hash: #{parser.plist_content_hash}"
       udid = parser.get 'UDID'
+      puts " (debug) udid: #{udid}"
       version = parser.get 'VERSION'
+      puts " (debug) version: #{version}"
       product = parser.get 'PRODUCT'
+      puts " (debug) product: #{product}"
       mobile_device = MobileDevice.find_by udid:udid
       if !mobile_device
          mobile_device =  MobileDevice.new
