@@ -1,6 +1,8 @@
 class AppDistributorController < ApplicationController
+	include RequestUserAgentHelper
+	
     def index
-        @ios_device = "Mobile.Safari" #request.user_agent =~ /(Mobile\/.+Safari)/
+        @is_mobile_safari = request_from_mobile_safari?(request)
         @profile_config_path = "/deviceprofile/mobileconfig"
     end
 end

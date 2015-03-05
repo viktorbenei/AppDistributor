@@ -1,8 +1,15 @@
 <div align='center'>
-    <h1>Welcome to App Distributor</h1>
+    <h1>Get your iOS device's uniq identifier (UDID)</h1>
     <br>
     <br>
-    <h3>Tap <i><font color='blue'>Install Profile</font></i> to find list of app that can be intalled for testing purpose</h3>
+    <% if @is_mobile_safari %>
+	    <h3>Tap <i><font color='blue'>Install Profile</font></i> to find out what your device's UDID is!</h3>
+	    <br>
+	    <%= link_to "Install Profile", @profile_config_path %>
+	<% else %>
+		<p>Open this page in <b>Safari</b> on your <b>iOS device</b>!</p>	
+	<% end %>
+	<br>
     <br>
-    <%= link_to "Install Profile", @profile_config_path %>
+	<p><i>User agent: <%= request.user_agent %></i></p>
 </div>
